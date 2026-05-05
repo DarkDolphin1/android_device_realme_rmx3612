@@ -4,4 +4,8 @@
 //
 
 soong_namespace {
+    imports: [
+        "hardware/mediatek",
+        "hardware/mediatek/libmtkperf_client",
+    ],
 }

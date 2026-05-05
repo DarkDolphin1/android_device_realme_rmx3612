@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_rmx3612.mk
+    $(LOCAL_DIR)/lineage_RMX3612.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_rmx3612-user \
-    lineage_rmx3612-userdebug \
-    lineage_rmx3612-eng
+    lineage_RMX3612-user \
+    lineage_RMX3612-userdebug \
+    lineage_RMX3612-eng

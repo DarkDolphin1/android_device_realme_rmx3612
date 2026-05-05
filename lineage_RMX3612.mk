@@ -4,15 +4,15 @@
 #
 
 # Inherit from the custom device configuration.
-$(call inherit-product, device/realme/rmx3612/device.mk)
+$(call inherit-product, device/realme/RMX3612/device.mk)
 
 # Inherit from the LineageOS configuration.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 PRODUCT_BRAND := Realme
-PRODUCT_DEVICE := rmx3612
+PRODUCT_DEVICE := RMX3612 
 PRODUCT_MANUFACTURER := Realme
-PRODUCT_MODEL := rmx3612
-PRODUCT_NAME := lineage_rmx3612
+PRODUCT_MODEL := RMX3612 
+PRODUCT_NAME := lineage_RMX3612
 
 PRODUCT_GMS_CLIENTID_BASE := android-oppo

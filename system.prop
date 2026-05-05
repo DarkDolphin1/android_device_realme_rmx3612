@@ -1,0 +1,39 @@
+# Audio
+af.fast_track_multiplier=1
+audio.deep_buffer.media=true
+audio.offload.min.duration.secs=15
+audio.offload.video=true
+ro.af.client_heap_size_kbyte=7168
+ro.config.media_vol_steps=25
+ro.config.vc_call_vol_steps=11
+
+# Bluetooth
+persist.vendor.btstack.customers=mediatek
+ro.vendor.bt.platform=connac1x
+
+# Camera
+vendor.camera.mdp.cz.enable=1
+vendor.camera.mdp.dre.enable=1
+
+# Display
+debug.sf.disable_backpressure=1
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+ro.surface_flinger.protected_contents=true
+
+# DRM
+drm.service.enabled=true
+ro.com.widevine.cachesize=8388608
+
+# MTK platform
+ro.vendor.mediatek.platform=MT6833
+ro.vendor.mtk_platform=MT6833
+
+# RIL
+rild.libpath=/vendor/lib64/mtk-ril.so
+ro.vendor.mtk_external_sim_only_slots=0
+ro.vendor.mtk_sim_card_onoff=3
+ro.vendor.num_md_protocol=2
+
+# WiFi
+wifi.direct.interface=p2p-dev-wlan0
+wifi.interface=wlan0

@@ -86,7 +86,7 @@ PRODUCT_PACKAGES += \
     audio.sysbta.default \
     android.hardware.bluetooth.audio-service-system
 
-# These configs don't exist yet in DT 
+# These configs don't exist yet in DT
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration.xml \
     $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration_7_0.xml
@@ -124,4 +124,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # System prop
 -include $(DEVICE_PATH)/system_prop.mk
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/device.prop:$(TARGET_COPY_OUT_VENDOR)/default.prop
+
+
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true

@@ -49,9 +49,9 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 # Init
-PRODUCT_PACKAGES += \
-    init.mt6833.rc \
-    fstab.mt6833
+# PRODUCT_PACKAGES += \
+#    init.mt6833.rc \
+#    fstab.mt6833
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -59,17 +59,13 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/etc/fstab.mt6833:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6833
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
+# DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay
 
 # RRO Overlays
-PRODUCT_PACKAGES += \
-    TetheringConfigOverlay \
-    WifiOverlay
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+# PRODUCT_PACKAGES += \
+#    TetheringConfigOverlay \
+#	   WifiOverlay
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -82,18 +78,18 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml
 
 # Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.rmx3612
+# PRODUCT_PACKAGES += \
+#    android.hardware.light@2.0-service.rmx3612
 
 # Bluetooth Audio (System-side HAL, sysbta)
-PRODUCT_PACKAGES += \
-    audio.sysbta.default \
-    android.hardware.bluetooth.audio-service-system
+# PRODUCT_PACKAGES += \
+#    audio.sysbta.default
+#    android.hardware.bluetooth.audio-service-system
 
 # These configs don't exist yet in DT
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration.xml \
-    $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration_7_0.xml
+#PRODUCT_COPY_FILES += \
+#    $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration.xml \
+#   $(DEVICE_PATH)/bluetooth/audio/config/sysbta_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysbta_audio_policy_configuration_7_0.xml
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -104,18 +100,18 @@ PRODUCT_PACKAGES += \
     libsuspend
 
 # IMS
-PRODUCT_BOOT_JARS += \
-    mediatek-common \
-    mediatek-framework \
-    mediatek-ims-base \
-    mediatek-ims-common \
-    mediatek-telecom-common \
-    mediatek-telephony-base \
-    mediatek-telephony-common
+#PRODUCT_BOOT_JARS += \
+#    mediatek-common \
+#    mediatek-framework \
+#    mediatek-ims-base \
+#    mediatek-ims-common \
+#   mediatek-telecom-common \
+#   mediatek-telephony-base \
+#   mediatek-telephony-common
 
 # InCall Service
-PRODUCT_PACKAGES += \
-    MtkInCallService
+# PRODUCT_PACKAGES += \
+     MtkInCallService
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -129,7 +125,9 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # System prop
 -include $(DEVICE_PATH)/system_prop.mk
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/device.prop:$(TARGET_COPY_OUT_VENDOR)/default.prop
+    $(DEVICE_PATH)/system.prop:$(TARGET_COPY_OUT_VENDOR)/system.prop
 
 
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml

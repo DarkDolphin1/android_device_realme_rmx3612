@@ -55,7 +55,7 @@ BOARD_INCLUDE_RECOVERY_DTBO := false
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
 
 BOARD_MKBOOTIMG_ARGS += --base $(BOARD_KERNEL_BASE)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
@@ -90,9 +90,13 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x4000000
-BOARD_DTBOIMG_PARTITION_SIZE := 0x800000
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 0xbe3ff8000
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+# prebuilt dtbo.img is exactly 8 MiB due to padding , leaving no space for footer 
+# this is a temporary workaround until we can get a smaller dtbo.img by building the kernel from source 
+# BOARD_DTBOIMG_PARTITION_SIZE := 0x800000 
+BOARD_DTBOIMG_PARTITION_SIZE := 0x1000000
+# size needs to be in base 10
+# BOARD_USERDATAIMAGE_PARTITION_SIZE := 51069812736
+# BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -142,6 +146,21 @@ BOARD_VNDK_VERSION := current
 # Virtual A/B
 ENABLE_VIRTUAL_AB := true
 AB_OTA_UPDATER := true
+
+# A/B OTA
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS := \
+    boot \
+    dtbo \
+    system \
+    system_ext \
+    vendor \
+    odm \
+    product \
+    vbmeta \
+    vbmeta_system \
+    vbmeta_vendor
 
 # Inherit from the proprietary version
 -include vendor/realme/RMX3612/BoardConfigVendor.mk

@@ -9,5 +9,28 @@ attribute hal_mms_server;
 binder_call({appdomain -isolated_app}, hal_mms_server)
 binder_call(hal_mms_server, {appdomain -isolated_app})
 
+
+# proc touchpanel
+type proc_tp, fs_type, proc_type;
+
+# proc touchpanel
+# type proc_tp, fs_type, proc_type;
+
+# debugfs
+# type debugfs_ion, fs_type, debugfs_type;
+
+# MTK MMS hwservice (duplicate declaration was removed, re-add here)
 type mtk_hal_mms_hwservice, hwservice_manager_type;
-allow { appdomain -isolated_app }  mtk_hal_mms_hwservice:hwservice_manager find;
+
+# sysfs types
+# type sysfs_battery_supply, fs_type, sysfs_type;
+# type sysfs_disp_hbm, fs_type, sysfs_type;
+type sysfs_fod, fs_type, sysfs_type;
+# type sysfs_fps, fs_type, sysfs_type;
+# type sysfs_graphics_ffl, fs_type, sysfs_type;
+
+# vtservice
+# type vtservice_service, service_manager_type;
+
+# MTK MMS HAL
+type mtk_hal_mms, domain;

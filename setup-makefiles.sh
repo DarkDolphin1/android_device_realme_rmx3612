@@ -18,7 +18,7 @@
 
 set -e
 
-export DEVICE=RMX3612
+export DEVICE=Blade
 export VENDOR=realme
 
 INITIAL_COPYRIGHT_YEAR=2026
@@ -40,7 +40,7 @@ source "${HELPER}"
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
 
 # Copyright headers and guards
-write_headers "RMX3612"
+write_headers "Blade"
 
 # The standard blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

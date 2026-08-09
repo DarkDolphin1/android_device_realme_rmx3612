@@ -18,7 +18,7 @@
 
 set -e
 
-export DEVICE=RMX3612
+export DEVICE=Blade
 export VENDOR=realme
 
 # Load extract_utils and do some sanity checks

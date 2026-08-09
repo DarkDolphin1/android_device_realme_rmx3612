@@ -4,13 +4,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/realme/rmx3612
+DEVICE_PATH := device/realme/Blade
 
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Inherit Vendor Blobs
-$(call inherit-product, vendor/realme/rmx3612/rmx3612-vendor.mk)
+$(call inherit-product, vendor/realme/Blade/Blade-vendor.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)

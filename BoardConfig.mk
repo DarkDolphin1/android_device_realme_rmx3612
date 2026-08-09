@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/realme/rmx3612
+DEVICE_PATH := device/realme/Blade
 BOARD_VENDOR := realme
 
 # Architecture
@@ -144,4 +144,4 @@ ENABLE_VIRTUAL_AB := true
 AB_OTA_UPDATER := true
 
 # Inherit from the proprietary version
--include vendor/realme/rmx3612/BoardConfigVendor.mk
+-include vendor/realme/RMX3612/BoardConfigVendor.mk

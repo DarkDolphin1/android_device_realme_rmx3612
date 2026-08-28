@@ -122,10 +122,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
-# System prop
--include $(DEVICE_PATH)/system_prop.mk
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/device.prop:$(TARGET_COPY_OUT_VENDOR)/default.prop
+# Properties
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
